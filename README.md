@@ -1,6 +1,6 @@
-# concha-assessment
+## Concha Labs Assessment
 
-## HOW TO GET ASSESSMENT RUNNING ON LOCAL:
+### HOW TO GET ASSESSMENT RUNNING ON LOCAL:
 -fork repo <br/>
 -contact me for .env variables, add to .env file <br/>
 -npm i (installs all packages) <br/>
