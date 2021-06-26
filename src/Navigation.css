@@ -1,0 +1,25 @@
+nav {
+  text-align: right;
+  padding: 1rem;
+  background-color: rgb(3, 124, 172);
+}
+nav li {
+  display: inline;
+  margin: 0.3rem;
+}
+
+nav a {
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  transition: 300ms all;
+  font-size: 1rem;
+}
+
+nav a:hover {
+  color:#36f8ff;
+}
+
+nav a.active {
+  border-bottom: 5px solid #36f8ff;
+}

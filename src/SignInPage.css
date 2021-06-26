@@ -1,0 +1,46 @@
+.sign-in-form {
+  padding: 2rem;
+  border: 2px solid black;
+  width: 40%;
+  margin: auto;
+  margin-top: 8rem;
+  border-radius: 15px;
+  background-color: rgb(3, 124, 172);
+  color: white;
+}
+
+.sign-in-form input {
+  margin: 0.3rem;
+  border-radius: 15px;
+  padding: 0.4rem;
+  width: 75%;
+}
+
+.sign-in-form > button {
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 15px;
+  color: white;
+  font-weight: bolder;
+  font-size: 1rem;
+  padding: 10px;
+  margin-top: 10px;
+  transition: 300ms all;
+}
+
+.sign-in-form > button:hover {
+  background-color: #36f8ff;
+  cursor: pointer;
+  color: rgb(3, 124, 172);
+}
+
+.sign-in-form img {
+  max-width: 25px;
+  height: auto;
+}
+
+@media screen and (max-width: 900px) {
+  .sign-in-form {
+    width: 75%;
+  }
+}

@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Route, BrowserRouter, Switch, Redirect } from "react-router-dom";
+import AudioPage from "./AudioPage";
+import SignInsList from "./SignInsList";
+import SignInPage from "./SignInPage";
+import Navigation from "./Navigation";
+import {useSelector} from 'react-redux';
 
 function App() {
+
+  const user = useSelector(s => s.user);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Navigation />
+        <Switch>
+          <Route exact path="/">
+            <SignInPage />
+          </Route>
+          {!!user && (
+            <>
+              <Route exact path="/audio">
+                <AudioPage />
+              </Route>
+              <Route exact path="/users">
+                <SignInsList />
+              </Route>
+            </>
+          )}
+          <Redirect to="/" />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
