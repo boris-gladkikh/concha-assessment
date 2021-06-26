@@ -116,10 +116,8 @@ export default function AudioPlayer() {
   const handlePlay = () => {
     setPlaying(!playing);
     if (playing) {
-      console.log("pausing");
       audioTrack.current.pause();
     } else {
-      console.log("playing");
       audioTrack.current.play();
     }
   };

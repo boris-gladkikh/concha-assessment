@@ -1,7 +1,6 @@
 TODO:
 
 
-4. set up utils on sign ins list page
+4. set up utils on sign ins list page - figure out why array is returning blank
 5. build loading design, implement loading into pages
 
-6. reformat firebase code with .env

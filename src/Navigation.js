@@ -12,7 +12,6 @@ function Navigation() {
 
   function handleSignOut() {
     dispatch({type: "LOGOUT"});
-    console.log('this is user after logout', user);
     history.push('/');
 
   }

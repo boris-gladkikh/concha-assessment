@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import LoadingSpinner from "./LoadingSpinner";
 import "./SignInPage.css";
 import { signInWithGoogle } from "./firebase";
 import { useHistory } from "react-router-dom";
@@ -13,6 +14,7 @@ function SignInPage() {
   const history = useHistory();
 
 
+  //sign in with google to firebase, fetch api key from backend, create user in backend 
   const logIn = useCallback(async () => {
     const userGoogle = await signInWithGoogle();
     const { displayName, email, uid } = userGoogle;
@@ -29,6 +31,7 @@ function SignInPage() {
 
   },[dispatch])
 
+  //useEffect to log in
   useEffect(() => {
 
     if (isLoading) {
@@ -37,12 +40,11 @@ function SignInPage() {
     }
   }, [isLoading, logIn]);
 
-  useEffect(() => {}, []);
 
 
   if (isLoading) {
     return (
-      <h1>loading</h1> //TODO: create loading spinner
+      <LoadingSpinner />
     );
   }
 
