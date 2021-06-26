@@ -1,10 +1,10 @@
 # concha-assessment
 
 ## HOW TO GET ASSESSMENT RUNNING ON LOCAL:
--fork repo
--contact me for .env variables, add to .env file
--npm i (installs all packages)
--npm start to run on local server
+-fork repo <br/>
+-contact me for .env variables, add to .env file <br/>
+-npm i (installs all packages) <br/>
+-npm start to run on local server <br/>
 
 
 
@@ -12,14 +12,14 @@
 
 ### Login
 
--authenticates user with firebase Google login
+-authenticates user with firebase Google login <br/>
 -persists user data throughout app with redux  state management
 
 ### Audio
 
--can press play to start playing audio track, press again to pause
--press restart to restart audio track
--can control volume on 3 EQ bands based  on assessment specs
+-can press play to start playing audio track, press again to pause <br/>
+-press restart to restart audio track <br/>
+-can control volume on 3 EQ bands based  on assessment specs <br/>
 -press reset to reset values on all EQ bands
 
 
