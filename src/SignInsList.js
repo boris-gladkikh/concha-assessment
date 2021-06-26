@@ -2,32 +2,34 @@ import React, { useState, useEffect } from "react";
 import "./SignInsList.css";
 import { useSelector } from "react-redux";
 import { fetchAllUsers } from "./util";
+import LoadingSpinner from "./LoadingSpinner";
 
-const testUsers = [
-  {
-    email: "amy@conchalabs.com",
-    firebase_uid: "DLL0KLLe5FWOSG3bMOC4Qf4gWiM2",
-    name: "Amy Li",
-  },
-  {
-    email: "bingo@conchalabs.com",
-    firebase_uid: "DLL0KLLe5FWOSG3bMOC4Qf4gWiM2",
-    name: "Bingo Boingo",
-  },
-  {
-    email: "jim@conchalabs.com",
-    firebase_uid: "DLL0KLLe5FWOSG3bMOC4Qf4gWiM2",
-    name: "Jim Jungus",
-  },
-  {
-    email: "clem@gmail.com",
-    firebase_uid: "DLL0KLLe5FWOSG3bMOC4Qf4gWiM2",
-    name: "Clem Earthy",
-  },
-];
+// const testUsers = [
+//   {
+//     email: "amy@conchalabs.com",
+//     firebase_uid: "DLL0KLLe5FWOSG3bMOC4Qf4gWiM2",
+//     name: "Amy Li",
+//   },
+//   {
+//     email: "bingo@conchalabs.com",
+//     firebase_uid: "DLL0KLLe5FWOSG3bMOC4Qf4gWiM2",
+//     name: "Bingo Boingo",
+//   },
+//   {
+//     email: "jim@conchalabs.com",
+//     firebase_uid: "DLL0KLLe5FWOSG3bMOC4Qf4gWiM2",
+//     name: "Jim Jungus",
+//   },
+//   {
+//     email: "clem@gmail.com",
+//     firebase_uid: "DLL0KLLe5FWOSG3bMOC4Qf4gWiM2",
+//     name: "Clem Earthy",
+//   },
+// ];
 
 function SignInsList() {
   const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const key = useSelector((st) => st.key);
 
   // fetch users from API
@@ -39,12 +41,15 @@ function SignInsList() {
       } catch (err) {
         console.error(err);
         throw new Error(err);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchData();
   }, [key]);
 
+  //maps response from API to table 
   const generateList = users.map((u) => {
     return (
       <tr>
@@ -53,6 +58,13 @@ function SignInsList() {
       </tr>
     );
   });
+
+  if(isLoading) {
+    return (
+      <LoadingSpinner />
+    )
+  }
+  
   return (
     <div className="App">
       <h1>Recent Users</h1>
