@@ -21,7 +21,6 @@ export const createUser = async (payload, key) => {
   };
   try {
     const response = await axios.post(`${BASEURL}/users`, payload, authHeaders);
-    console.log('createUser response', response);
     return response.data;
   } catch (err) {
     console.error(err);
@@ -39,7 +38,6 @@ export const fetchAllUsers = async (key) => {
   };
   try {
     const response = await axios.get(`${BASEURL}/users`, authHeaders);
-    console.log('fetch all users result', response.data)
     return response.data;
   } catch (err) {
     console.error(err);

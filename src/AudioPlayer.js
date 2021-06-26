@@ -11,8 +11,6 @@ const initGainValues = {
 export default function AudioPlayer() {
   const [eqObject, setEqObject] = useState({ ...initGainValues });
   const [playing, setPlaying] = useState(false);
-  // const [songCurrentTime, setSongCurrentTime] = useState(0);
-  // const [audioDuration, setAudioDuration] = useState();
   const buttonIcon = playing ? "Pause" : "Play";
 
   const audioTrack = useRef();
@@ -57,30 +55,6 @@ export default function AudioPlayer() {
       audioContext.close();
     };
   }, []);
-
-  ///////////////////////////////////////////////////////
-  //set duration of audio TODO::::::
-  // useEffect(() => {
-  //   console.log("duration", typeof audioTrack?.current?.duration);
-  //   setAudioDuration(audioTrack.current.duration);
-  // }, [audioTrack?.current?.onloadedmetadata]);
-
-  // //audio time display
-  // useEffect(() => {
-  //   const timer = () => {
-  //     setSongCurrentTime(Math.round(audioTrack.current?.currentTime));
-  //   };
-  //   if (playing) {
-  //     setInterval(timer, 1000);
-  //   } else {
-  //     clearInterval(timer);
-  //   }
-
-  //   return () => {
-  //     clearInterval(timer);
-  //   };
-  // }, [playing]);
-  ///////////////////////////////////////////////////////
 
   // adjust low gain
   useEffect(() => {
@@ -147,9 +121,6 @@ export default function AudioPlayer() {
     <div className="audio-player">
       <h3>AUDIO PLAYER</h3>
 
-      {/* <div id="audioTimeDisplay">
-        {songCurrentTime} / {audioDuration}
-      </div> */}
       <button className="transport-button" id="playButton" onClick={handlePlay}>
         {buttonIcon}
       </button>
